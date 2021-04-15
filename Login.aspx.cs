@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +13,56 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["name"] != null)
+            {
+                Response.Redirect("Default.aspx");
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            if (username == "" || password == "")
+            {
+                Response.Write("<script language=javascript>alert('Please enter both username and password')</script>");
+            } else
+            {
+                try
+                {
+                    String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+                    String queryString = $"SELECT * FROM [User] WHERE [Name] = '{username}' and [Password] = '{password}'";
+
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    {
+                        SqlCommand cmd = new SqlCommand(queryString, con);
+                        con.Open();
+
+                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    Session["id"] = reader["id"].ToString();
+                                    Session["name"] = reader["name"].ToString();
+                                    Session["type"] = reader["type"].ToString();
+                                    Response.Redirect("Default.aspx");
+                                }
+                            }
+                            else
+                            {
+                                Response.Write("<script language=javascript>alert('Invalid username or password')</script>");
+                            }
+                        }                        
+                    }
+                } catch (Exception ex)
+                {
+                    Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
+                } 
+            }
 
         }
     }
