@@ -11,7 +11,19 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["name"] != null)
+            {
+                lbUser.Text = Session["name"].ToString();
+            } else
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }
