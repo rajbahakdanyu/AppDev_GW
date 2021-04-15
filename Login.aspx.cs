@@ -49,6 +49,7 @@ namespace AppDev_GW
                                     Session["id"] = reader["id"].ToString();
                                     Session["name"] = reader["name"].ToString();
                                     Session["type"] = reader["type"].ToString();
+                                    Session["first"] = false;
                                     Response.Redirect("Default.aspx");
                                 }
                             }
