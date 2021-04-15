@@ -24,8 +24,13 @@ namespace AppDev_GW
             if (!(bool)Session["first"])
             {
                 Session["first"] = true;
-                Response.Write("<script language=javascript>alert('First Visit')</script>");
+                checkStock();
             }
+        }
+
+        protected void checkStock()
+        {
+            Response.Write("<script language=javascript>alert('First Visit')</script>");
         }
 
         protected void btnLogout_Click(object sender, EventArgs e)

@@ -24,6 +24,7 @@ namespace AppDev_GW
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
+            // Check if both username and password is empty
             if (username == "" || password == "")
             {
                 Response.Write("<script language=javascript>alert('Please enter both username and password')</script>");
@@ -35,15 +36,19 @@ namespace AppDev_GW
 
                     String queryString = $"SELECT * FROM [User] WHERE [Name] = '{username}' and [Password] = '{password}'";
 
+                    // Connecting to database
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
                         SqlCommand cmd = new SqlCommand(queryString, con);
                         con.Open();
 
+                        // Executing query
                         using(SqlDataReader reader = cmd.ExecuteReader())
                         {
+                            // Check if output is empty
                             if (reader.HasRows)
                             {
+                                // Read output
                                 while (reader.Read())
                                 {
                                     Session["id"] = reader["id"].ToString();
