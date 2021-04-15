@@ -27,6 +27,7 @@ namespace AppDev_GW
             // Check if both username and password is empty
             if (username == "" || password == "")
             {
+                            
                 Response.Write("<script language=javascript>alert('Please enter both username and password')</script>");
             } else
             {
