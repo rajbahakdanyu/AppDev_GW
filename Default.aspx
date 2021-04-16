@@ -24,15 +24,11 @@
             </div>
           </div>
           <div class="modal-footer">
-            <asp:Button ID="btnConfirm" class="btn btn-primary" runat="server" Text="Go Restock Them" PostBackUrl="~/Contact" />
+            <asp:Button ID="btnConfirm" class="btn btn-primary" runat="server" Text="Go Restock Them" PostBackUrl="~/Item" />
             <asp:Button ID="Button1" class="btn btn-secondary" runat="server" Text="Dismiss" data-dismiss="modal"/>
           </div>
         </div>
       </div>
-    </div>
-
-    <div>
-        <asp:Button ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
     </div>
 
     <script type="text/javascript">

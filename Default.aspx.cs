@@ -13,14 +13,7 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is logged in
-            if (Session["name"] != null)
-            {
-                lbUser.Text = Session["name"].ToString();
-            } else
-            {
-                Response.Redirect("Login.aspx");
-            }
+            lbUser.Text = Session["name"].ToString() + ", " + Session["type"].ToString();            
 
             // Check if this is the first visit to page
             if (!(bool)Session["first"])
@@ -53,6 +46,7 @@ namespace AppDev_GW
                             // Bind output to gridview
                             GridView1.DataSource = reader;
                             GridView1.DataBind();
+                            // Display pop up
                             ClientScript.RegisterStartupScript(this.GetType(), "Pop", "showModal();", true);
                         }
                     }
@@ -62,12 +56,6 @@ namespace AppDev_GW
             {
                 Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
             }
-        }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
         }
     }
 }

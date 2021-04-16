@@ -7,15 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace AppDev_GW
 {
-    public partial class Contact : Page
+    public partial class ChangePassword : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is admin
-            if (Session["type"].ToString() != "Admin")
-            {
-                Response.Redirect("Default.aspx");
-            }
+
         }
     }
 }
