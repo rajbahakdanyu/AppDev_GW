@@ -53,6 +53,7 @@ namespace AppDev_GW
                             // Bind output to gridview
                             GridView1.DataSource = reader;
                             GridView1.DataBind();
+                            ClientScript.RegisterStartupScript(this.GetType(), "Pop", "showModal();", true);
                         }
                     }
                 }
