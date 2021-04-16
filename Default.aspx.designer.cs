@@ -24,6 +24,15 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Label lbUser;
 
         /// <summary>
+        /// btnChange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChange;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>

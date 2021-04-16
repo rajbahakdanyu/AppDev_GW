@@ -5,6 +5,10 @@
     <div>
         <asp:Label ID="lbUser" runat="server" Text="Label"></asp:Label>
     </div>
+
+    <div>
+        <asp:Button ID="btnChange" runat="server" Text="Change Password" OnClick="btnChange_Click" />
+    </div>
     
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -24,7 +28,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <asp:Button ID="btnConfirm" class="btn btn-primary" runat="server" Text="Go Restock Them" PostBackUrl="~/Contact" />
+            <asp:Button ID="btnConfirm" class="btn btn-primary" runat="server" Text="Go Restock Them" PostBackUrl="~/Item" />
             <asp:Button ID="Button1" class="btn btn-secondary" runat="server" Text="Dismiss" data-dismiss="modal"/>
           </div>
         </div>

@@ -13,7 +13,7 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbUser.Text = Session["name"].ToString();            
+            lbUser.Text = Session["name"].ToString() + ", " + Session["type"].ToString();            
 
             // Check if this is the first visit to page
             if (!(bool)Session["first"])
@@ -62,6 +62,11 @@ namespace AppDev_GW
         {
             Session.Clear();
             Response.Redirect("Login.aspx");
+        }
+
+        protected void btnChange_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
         }
     }
 }

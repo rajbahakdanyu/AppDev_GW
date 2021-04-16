@@ -11,7 +11,11 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Check if user is admin
+            if (Session["type"].ToString() != "Admin")
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
