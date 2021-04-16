@@ -18,5 +18,16 @@ namespace AppDev_GW
             }
 
         }
+
+        protected void Change(object sender, EventArgs e)
+        {
+            Response.Redirect("ChangePassword.aspx");
+        }
+
+        protected void LogOut(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

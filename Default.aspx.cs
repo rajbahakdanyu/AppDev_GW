@@ -57,16 +57,5 @@ namespace AppDev_GW
                 Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
             }
         }
-
-        protected void btnLogout_Click(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
-
-        protected void btnChange_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ChangePassword.aspx");
-        }
     }
 }

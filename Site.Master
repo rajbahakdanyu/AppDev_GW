@@ -57,6 +57,16 @@
                         <li><a runat="server" href="~/Customer">Customer</a></li>
                         <li><a runat="server" href="~/Item">Item</a></li>
                     </ul>
+                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="btn-nav"><a class="btn btn-primary btn-small navbar-btn" runat="server" onserverclick="Change">Change Password</a>
+                            </div>
+                        </li>                     
+                        <li>
+                            <div class="btn-nav"><a class="btn btn-danger btn-small navbar-btn" runat="server" onserverclick="LogOut">Log Out</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

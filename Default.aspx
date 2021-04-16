@@ -5,10 +5,6 @@
     <div>
         <asp:Label ID="lbUser" runat="server" Text="Label"></asp:Label>
     </div>
-
-    <div>
-        <asp:Button ID="btnChange" runat="server" Text="Change Password" OnClick="btnChange_Click" />
-    </div>
     
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -33,10 +29,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div>
-        <asp:Button ID="btnLogout" runat="server" Text="Log Out" OnClick="btnLogout_Click" />
     </div>
 
     <script type="text/javascript">
