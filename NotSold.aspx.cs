@@ -11,7 +11,34 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                BindGrid();
+            }
+        }
 
+        private void BindGrid()
+        {
+            int id = Convert.ToInt32(Session["id"].ToString());
+
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            String queryString = $"SELECT [Id], [Name], [Description], [Quantity] FROM [Item] WHERE [Quantity] = 0 ORDER BY {expression} {direction} ";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(queryString, con);
+
+                DataTable dt = new DataTable("Items");
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    dt.Load(sdr);
+                }
+
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
         }
     }
 }
