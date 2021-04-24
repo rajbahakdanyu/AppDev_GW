@@ -58,6 +58,7 @@
                         <li><a runat="server" href="~/Item">Item</a></li>
                         <li><a runat="server" href="~/OutofStock">Out of Stock Items</a></li>
                         <li><a runat="server" href="~/NotSold">Not Sold Items</a></li>
+                        <li><a runat="server" href="~/Inactive">Inactive Customers</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
                         <li>
