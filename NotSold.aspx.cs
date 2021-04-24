@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,11 +22,15 @@ namespace AppDev_GW
 
         private void BindGrid()
         {
-            int id = Convert.ToInt32(Session["id"].ToString());
-
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = $"SELECT [Id], [Name], [Description], [Quantity] FROM [Item] WHERE [Quantity] = 0 ORDER BY {expression} {direction} ";
+            String queryString = @"SELECT i.[Id], i.[Name], i.[Description], i.[Quantity] 
+                                    FROM [Item] as i
+                                    WHERE NOT EXISTS ( 
+                                            SELECT *
+                                            FROM [Order]
+                                            WHERE [Date] >= Dateadd(DAY, -31, sysdatetime())
+                                    )";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
