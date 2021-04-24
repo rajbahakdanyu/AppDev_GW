@@ -55,7 +55,27 @@ namespace AppDev_GW
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "Pop", "showModal();", true);
+            string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            String queryString = @"DELETE FROM [Item]
+                                    WHERE NOT EXISTS ( 
+                                            SELECT *
+                                            FROM [Order]
+                                            WHERE [Date] >= Dateadd(Month, -3, sysdatetime())
+                                    )";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand(queryString, con);
+
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Records Deleted Successfully')", true);
+                }
+
+                BindGrid();
+            }
         }
     }
 }
