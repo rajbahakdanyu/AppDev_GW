@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace AppDev_GW
 {
-    public partial class OutofStock : System.Web.UI.Page
+    public partial class Inactive : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,20 +20,25 @@ namespace AppDev_GW
             }
         }
 
-        private void BindGrid(string expression = "[Id]", string direction = "ASC")
+        private void BindGrid()
         {
-            int id = Convert.ToInt32(Session["id"].ToString());
-
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = $"SELECT [Id], [Name], [Description], [Quantity] FROM [Item] WHERE [Quantity] = 0 ORDER BY {expression} {direction} ";
+            String queryString = @"SELECT *
+                                    FROM Customer
+                                    WHERE NOT EXISTS ( 
+                                            SELECT *
+                                            FROM [Order]
+                                            WHERE [CustomerId] = [Customer].[Id]
+                                            AND [Date] >= Dateadd(DAY, -31, sysdatetime())
+                                    )";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand(queryString, con);
 
-                DataTable dt = new DataTable("Items");
+                DataTable dt = new DataTable("Customers");
                 using (SqlDataReader sdr = cmd.ExecuteReader())
                 {
                     dt.Load(sdr);
@@ -42,24 +47,6 @@ namespace AppDev_GW
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
             }
-        }
-
-        protected void btnSort_Click(object sender, EventArgs e)
-        {
-            string expression = ddlSearch.SelectedItem.Value;
-            string direction;
-
-            switch (expression)
-            {
-                case "Name":
-                    direction = "ASC";
-                    break;
-                default:
-                    direction = "DESC";
-                    break;
-            }
-
-            BindGrid(expression, direction);
         }
     }
 }
