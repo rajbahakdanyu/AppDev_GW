@@ -28,7 +28,7 @@ namespace AppDev_GW
 
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = $"SELECT * FROM [User] WHERE [Id] NOT IN(SELECT [Id] FROM [User] WHERE [Id] = {id})";
+            String queryString = $"SELECT [Name] FROM [User] WHERE [Id] NOT IN(SELECT [Id] FROM [User] WHERE [Id] = {id}) ";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
