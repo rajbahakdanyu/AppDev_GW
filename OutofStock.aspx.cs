@@ -26,7 +26,7 @@ namespace AppDev_GW
 
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = $"SELECT [Name] FROM [Item] WHERE [Quantity] = 0 ORDER BY {expression} {direction} ";
+            String queryString = $"SELECT [Id], [Name], [Description], [Quantity] FROM [Item] WHERE [Quantity] = 0 ORDER BY {expression} {direction} ";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
