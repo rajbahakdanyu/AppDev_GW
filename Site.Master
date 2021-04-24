@@ -56,6 +56,7 @@
                         <% } %>
                         <li><a runat="server" href="~/Customer">Customer</a></li>
                         <li><a runat="server" href="~/Item">Item</a></li>
+                        <li><a runat="server" href="~/OutofStock">Out of Stock Items</a></li>
                     </ul>
                      <ul class="nav navbar-nav navbar-right">
                         <li>

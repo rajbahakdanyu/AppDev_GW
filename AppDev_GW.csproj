@@ -108,6 +108,7 @@
     <Content Include="ChangePassword.aspx" />
     <Content Include="Customer.aspx" />
     <Content Include="Item.aspx" />
+    <Content Include="OutofStock.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -190,6 +191,13 @@
       <DependentUpon>Item.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="OutofStock.aspx.cs">
+      <DependentUpon>OutofStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutofStock.aspx.designer.cs">
+      <DependentUpon>OutofStock.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
