@@ -5,11 +5,11 @@
 
     <div>
         <asp:Label ID="Label1" runat="server" Text="Product Name"></asp:Label>
-        <asp:DropDownList ID="ddlItem" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
+        <asp:DropDownList ID="ddlItem" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id" AutoPostBack="True"></asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name] FROM [Item]"></asp:SqlDataSource>
         <asp:Label ID="Label2" runat="server" Text="Quantity"></asp:Label>
         <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
-        <asp:Button ID="btnAdd" runat="server" Text="Add/Update" />
+        <asp:Button ID="btnAdd" runat="server" Text="Add/Update" OnClick="btnAdd_Click" />
     </div>
 
     <div>
