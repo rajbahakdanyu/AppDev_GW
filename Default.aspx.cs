@@ -29,7 +29,11 @@ namespace AppDev_GW
             {
                 String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-                String queryString = "SELECT Id, Name, Quantity FROM [Item] WHERE [Quantity] < 10";
+                String queryString = @"SELECT s.Id, i.Name, s.Quantity, s.Date
+                                        FROM[Stock] as s
+                                        JOIN[Item] i ON
+                                        i.Id = s.ItemId
+                                        WHERE[Quantity] < 10";
 
                 // Connecting to database
                 using (SqlConnection con = new SqlConnection(connectionString))
