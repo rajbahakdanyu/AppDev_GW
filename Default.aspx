@@ -5,37 +5,22 @@
     <div>
         <asp:Label ID="lbUser" runat="server" Text="Label"></asp:Label>
     </div>
-    
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLabel">Stock low on these items</h3>
-          </div>
-          <div class="modal-body">
-            <div id="dialog">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" BorderStyle="None" GridLines="None">
-                    <Columns>
-                        <asp:BoundField DataField="Id" HeaderText="Item Id" ItemStyle-Width="80" />
-                        <asp:BoundField DataField="Name" HeaderText="Item Name" ItemStyle-Width="150" />
-                        <asp:BoundField DataField="Quantity" HeaderText="Remaining" ItemStyle-Width="150" />
-                    </Columns>
-                </asp:GridView>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <asp:Button ID="btnConfirm" class="btn btn-primary" runat="server" Text="Go Restock Them" PostBackUrl="~/Item" />
-            <asp:Button ID="Button1" class="btn btn-secondary" runat="server" Text="Dismiss" data-dismiss="modal"/>
-          </div>
-        </div>
-      </div>
+
+    <div class="Jumbotron">
+        <asp:Label ID="Label1" runat="server" Text="Items with Stock < 10"></asp:Label>
+
+        <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="None">
+        </asp:GridView>
     </div>
 
-    <script type="text/javascript">
-        function showModal() {
-            $("#exampleModal").modal('show');
-        }
-    </script>
+    <br />
+
+     <div class="Jumbotron">
+        <asp:Label ID="Label2" runat="server" Text="Items Out of Stock"></asp:Label>
+
+        <asp:GridView ID="GridView2" runat="server" BorderStyle="None" GridLines="None">
+        </asp:GridView>
+    </div>  
 
 </asp:Content>
 
