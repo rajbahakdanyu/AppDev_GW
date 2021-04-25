@@ -24,8 +24,10 @@ namespace AppDev_GW
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = @"SELECT *
-                                    FROM [Item]
+            String queryString = @"SELECT  i.[Id], i.[Name], i.[Description], i.[Price], s.[Quantity]
+                                    FROM [Item] as i
+                                    JOIN [Stock] s ON
+                                    s.[ItemId] = i.Id
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
