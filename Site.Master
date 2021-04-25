@@ -38,51 +38,40 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Inventory Management System</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <% if(Session["type"].ToString() == "Admin") { %>
+
+        <div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<h1><a runat="server" href="~/Default" class="logo">Inventory Management System</a></h1>
+	        <ul class="list-unstyled components mb-5">
+                   <% if(Session["type"].ToString() == "Admin") { %>
                             <li><a runat="server" href="~/User">User</a></li>
                         <% } %>
                         <li><a runat="server" href="~/Category">Category</a></li>
                         <li><a runat="server" href="~/Customer">Customer</a></li>
                         <li><a runat="server" href="~/Item">Item</a></li>
                         <li><a runat="server" href="~/Sale">Sale</a></li>
+                        <li><a runat="server" href="~/Stock">Stock</a></li>
                         <li><a runat="server" href="~/OutofStock">Out of Stock Items</a></li>
                         <li><a runat="server" href="~/NotSold">Not Sold Items</a></li>
                         <li><a runat="server" href="~/Inactive">Inactive Customers</a></li>
                         <li><a runat="server" href="~/NotSoldLong">Long Time Not Sold</a></li>
-                    </ul>      
-                    <ul class="nav navbar-nav navbar-right">
-                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Account
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" runat="server" onserverclick="Change">Change Password</a>
-                              <a class="dropdown-item" runat="server" onserverclick="LogOut">Log Out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                         <li><a class="dropdown-item" runat="server" onserverclick="Change">Change Password</a></li>   
+                          <li><a class="dropdown-item" runat="server" onserverclick="LogOut">Log Out</a></li>    
+	        </ul>
+
+	      </div>
+    	</nav>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Inventory Management System</p>
+                <p>&copy; <%: DateTime.Now.Year %> Inventory Management System</p>
             </footer>
+        </div>
+
         </div>
 
     </form>

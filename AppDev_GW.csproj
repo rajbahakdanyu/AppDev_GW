@@ -114,6 +114,7 @@
     <Content Include="NotSoldLong.aspx" />
     <Content Include="OutofStock.aspx" />
     <Content Include="Sale.aspx" />
+    <Content Include="Stock.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -237,6 +238,13 @@
     </Compile>
     <Compile Include="Sale.aspx.designer.cs">
       <DependentUpon>Sale.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Stock.aspx.cs">
+      <DependentUpon>Stock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Stock.aspx.designer.cs">
+      <DependentUpon>Stock.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
