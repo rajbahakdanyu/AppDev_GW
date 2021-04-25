@@ -105,12 +105,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Category.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Customer.aspx" />
     <Content Include="Inactive.aspx" />
     <Content Include="Item.aspx" />
     <Content Include="NotSold.aspx" />
+    <Content Include="NotSoldLong.aspx" />
     <Content Include="OutofStock.aspx" />
+    <Content Include="Sale.aspx" />
     <Content Include="User.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -171,6 +174,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ChangePassword.aspx.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,12 +217,26 @@
     <Compile Include="NotSold.aspx.designer.cs">
       <DependentUpon>NotSold.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NotSoldLong.aspx.cs">
+      <DependentUpon>NotSoldLong.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotSoldLong.aspx.designer.cs">
+      <DependentUpon>NotSoldLong.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OutofStock.aspx.cs">
       <DependentUpon>OutofStock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="OutofStock.aspx.designer.cs">
       <DependentUpon>OutofStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sale.aspx.cs">
+      <DependentUpon>Sale.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sale.aspx.designer.cs">
+      <DependentUpon>Sale.aspx</DependentUpon>
     </Compile>
     <Compile Include="User.aspx.cs">
       <DependentUpon>User.aspx</DependentUpon>
