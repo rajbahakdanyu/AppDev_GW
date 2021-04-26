@@ -11,7 +11,7 @@ namespace AppDev_GW
 {
 
 
-    public partial class Category
+    public partial class Detail
     {
 
         /// <summary>
@@ -24,40 +24,31 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Label lbTitle;
 
         /// <summary>
-        /// lbName control.
+        /// ddlSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSearch;
 
         /// <summary>
-        /// txtName control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// btnAdd control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
-
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
         /// GridView1 control.

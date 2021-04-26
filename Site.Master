@@ -52,12 +52,13 @@
                         <li><a runat="server" href="~/Item">Item</a></li>
                         <li><a runat="server" href="~/Sale">Sale</a></li>
                         <li><a runat="server" href="~/Stock">Stock</a></li>
+                        <li><a runat="server" href="~/Detail">Purchase Detail</a></li>
                         <li><a runat="server" href="~/OutofStock">Out of Stock Items</a></li>
                         <li><a runat="server" href="~/NotSold">Not Sold Items</a></li>
                         <li><a runat="server" href="~/Inactive">Inactive Customers</a></li>
                         <li><a runat="server" href="~/NotSoldLong">Long Time Not Sold</a></li>
-                         <li><a class="dropdown-item" runat="server" onserverclick="Change">Change Password</a></li>   
-                          <li><a class="dropdown-item" runat="server" onserverclick="LogOut">Log Out</a></li>    
+                        <li><a class="dropdown-item" runat="server" onserverclick="Change">Change Password</a></li>   
+                        <li><a class="dropdown-item" runat="server" onserverclick="LogOut">Log Out</a></li>    
 	        </ul>
 
 	      </div>
