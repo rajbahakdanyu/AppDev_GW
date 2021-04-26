@@ -7,7 +7,7 @@
         <asp:DropDownList ID="ddlSearch" runat="server" AutoPostBack = "true">
             <asp:ListItem Value="Name">Item Name</asp:ListItem>
             <asp:ListItem Value="Quantity">Quantity</asp:ListItem>
-            <asp:ListItem Value="Purchase">Stocked Date</asp:ListItem>
+            <asp:ListItem Value="Date">Stocked Date</asp:ListItem>
         </asp:DropDownList>
         <asp:Button ID="btnSort" runat="server" Text="Sort" OnClick="btnSort_Click"/>
     </div>

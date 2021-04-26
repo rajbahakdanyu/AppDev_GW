@@ -108,6 +108,7 @@
     <Content Include="Category.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Customer.aspx" />
+    <Content Include="Detail.aspx" />
     <Content Include="Inactive.aspx" />
     <Content Include="Item.aspx" />
     <Content Include="NotSold.aspx" />
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="Customer.aspx.designer.cs">
       <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inactive.aspx.cs">
       <DependentUpon>Inactive.aspx</DependentUpon>
