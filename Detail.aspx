@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Purchase Detail" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Detail.aspx.cs" Inherits="AppDev_GW.Detail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <asp:Label ID="lbTitle" runat="server" Text="Purchase Details" Font-Size="Large"></asp:Label>
+     <asp:Label ID="lbTitle" runat="server" Text="Purchase Details for the Past Month" Font-Size="Large"></asp:Label>
 
     <div>
         <asp:DropDownList ID="ddlSearch" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id"></asp:DropDownList>

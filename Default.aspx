@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="AppDev_GW._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
-    <div>
-        <asp:Label ID="lbUser" runat="server" Text="Label"></asp:Label>
-    </div>
-
     <div class="Jumbotron">
         <asp:Label ID="Label1" runat="server" Text="Items with Stock < 10"></asp:Label>
 
