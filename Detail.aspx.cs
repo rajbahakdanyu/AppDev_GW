@@ -25,7 +25,7 @@ namespace AppDev_GW
             {
                 string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-                String queryString = $"SELECT * FROM [Order] WHERE [CustomerId] = {customer} ORDER BY [Date] DESC";
+                String queryString = $"SELECT * FROM [Order] WHERE [CustomerId] = {customer} AND [Date] >= Dateadd(DAY, -31, sysdatetime()) ORDER BY [Date] DESC";
 
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
