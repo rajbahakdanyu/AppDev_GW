@@ -10,8 +10,8 @@
                     <asp:Label ID="Label1" runat="server" Text="Product Name"></asp:Label>
                 </td>
                 <td>
-        <asp:DropDownList ID="ddlItem" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id" AutoPostBack="True"></asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name] FROM [Item]"></asp:SqlDataSource>
+                    <asp:DropDownList ID="ddlItem" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Id" AutoPostBack="True"></asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Id], [Name] FROM [Item]"></asp:SqlDataSource>
                 </td>
             </tr>
             <tr>
@@ -23,6 +23,8 @@
                      <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtQuantity"   
                      ErrorMessage="Please enter quantity" ForeColor="Red"></asp:RequiredFieldValidator> 
                 </td>
+            </tr>
+            <tr>                
                 <td>                    
                     <asp:Button ID="btnAdd" runat="server" Text="Add/Update" OnClick="btnAdd_Click" />
                 </td>

@@ -46,9 +46,9 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtItemPurchaseDate" runat="server"></asp:TextBox>
+                         <asp:ImageButton ID="btnPurchase" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnPurchase_Click"/>
                          <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtItemPurchaseDate"   
                             ErrorMessage="Please enter item purchase date" ForeColor="Red"></asp:RequiredFieldValidator>  
-                         <asp:ImageButton ID="btnPurchase" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnPurchase_Click"/>
                         <asp:Calendar ID="calPurchase" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="calPurchase_SelectionChanged" OnDayRender="calPurchase_DayRender">
                             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
