@@ -47,6 +47,7 @@ namespace AppDev_GW
 
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
+            try { 
             String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             string itemID = txtItemID.Text.ToString() ?? "";
@@ -77,8 +78,13 @@ namespace AppDev_GW
             }
             btnAddItem.Text = "Insert";
             clear();
+        }
+            catch (Exception ex)
+            {
+                Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
+            }
 
-            itemsGridView.EditIndex = -1;
+    itemsGridView.EditIndex = -1;
             this.load_data();
         }
 

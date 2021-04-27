@@ -34,29 +34,37 @@ namespace AppDev_GW
 
         protected void Change(string password)
         {
-            string id = Session["id"].ToString();
-
-            String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
-            String queryString = $"UPDATE [User] SET [Password] = '{password}' WHERE [Id] = {id}";
-
-            // Connecting to database
-            using (SqlConnection con = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand(queryString, con);
-                con.Open();
+                string id = Session["id"].ToString();
 
-                // Executing query
-                int i = cmd.ExecuteNonQuery();
+                String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-                if (i == 1)
+                String queryString = $"UPDATE [User] SET [Password] = '{password}' WHERE [Id] = {id}";
+
+                // Connecting to database
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    Response.Redirect("Default.aspx");
-                    Response.Write("<script language=javascript>alert('Password Changed Successfully')</script>");
-                } else
-                {
-                    Response.Write("<script language=javascript>alert('Could not change password')</script>");
+                    SqlCommand cmd = new SqlCommand(queryString, con);
+                    con.Open();
+
+                    // Executing query
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i == 1)
+                    {
+                        Response.Redirect("Default.aspx");
+                        Response.Write("<script language=javascript>alert('Password Changed Successfully')</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>alert('Could not change password')</script>");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
             }
         }
 

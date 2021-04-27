@@ -44,6 +44,7 @@ namespace AppDev_GW
 
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
+            try { 
             String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
             string id = txtId.Text.ToString() ?? "";
@@ -68,9 +69,13 @@ namespace AppDev_GW
                 }
                 btnAdd.Text = "Insert";
                 clear();
-           
+        }
+            catch (Exception ex)
+            {
+                Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
+            }
 
-            GridView1.EditIndex = -1;
+    GridView1.EditIndex = -1;
             this.BindGrid();
         }
 
@@ -95,6 +100,7 @@ namespace AppDev_GW
 
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try { 
             string ID = GridView1.DataKeys[e.RowIndex].Values[0].ToString();
             string constr = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             string queryString = $"DELETE FROM [Category] WHERE [Id] = {ID}";
@@ -108,6 +114,11 @@ namespace AppDev_GW
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }
+            }
+        }
+            catch (Exception ex)
+            {
+                Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
             }
             this.BindGrid();
         }
