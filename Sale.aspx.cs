@@ -137,6 +137,7 @@ namespace AppDev_GW
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            try { 
                 var current = DateTime.Today;
                 customer = Convert.ToInt32(ddlCustomer.SelectedValue);
                 item = Convert.ToInt32(ddlItem.SelectedValue); 
@@ -159,8 +160,13 @@ namespace AppDev_GW
                     BindGrid();
                     updateStock(item, quantity);
                 }
-
         }
+            catch (Exception ex)
+            {
+                Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
+            }
+
+}
 
         protected void updateStock(int Id, int quantity)
         {
