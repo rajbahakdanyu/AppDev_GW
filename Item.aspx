@@ -9,10 +9,7 @@
             <table>
                 <tr>
                     <td>
-                        Item Id :
-                    </td>
-                    <td>
-                         <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtItemID" runat="server" Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
@@ -45,6 +42,17 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtItemPurchaseDate" runat="server"></asp:TextBox>
+                         <asp:ImageButton ID="btnPurchase" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnPurchase_Click"/>
+                        <asp:Calendar ID="calPurchase" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="calPurchase_SelectionChanged" OnDayRender="calPurchase_DayRender">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                      </td>
                 </tr>
                  <tr>
@@ -62,13 +70,6 @@
                      <td>
                          <asp:TextBox ID="txtItemExpiryDate" runat="server"></asp:TextBox>
                      </td>
-                </tr>
-                 <tr>
-                    <td>
-                        Item Quantity : 
-                    </td>
-                     <td><asp:TextBox ID="txtItemQuantity" runat="server"></asp:TextBox>
-                        </td>
                 </tr>
                  <tr>
                     <td>

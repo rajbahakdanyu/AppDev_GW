@@ -16,52 +16,6 @@ namespace AppDev_GW
             load_data();
         }
 
-        protected void btnAddItem_Click(object sender, EventArgs e)
-        {
-            String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
-            string itemID = txtItemID.Text.ToString() ?? "";
-            string itemName = txtItemName.Text.ToString() ?? "";
-            string itemDescription = txtItemDescription.Text.ToString() ?? "";
-            int itemPrice = txtItemPrice.Text.ToString().Length != 0 ? Int32.Parse(txtItemPrice.Text.ToString()) : 0;
-            string itemPurchaseDate = txtItemPurchaseDate.Text.ToString() ?? "";
-            string itemCatagory = ddlCatagory.Text.ToString() ?? "";
-            string itemManufactureDate = txtItemManufactureDate.Text.ToString() ?? "";
-            string itemExpiryDate = txtItemExpiryDate.Text.ToString() ?? "";
-            String queryString = "";
-
-            if (btnAddItem.Text == "Insert")
-            {
-                queryString = $"INSERT INTO [Item] ([Name], [Description], [Price], [Purchase], [Category], [Manufacture], [Expiry]) VALUES ('{itemName}', '{itemDescription}', {itemPrice}, '{itemPurchaseDate}', {itemCatagory}, '{itemManufactureDate}', '{itemExpiryDate}')";
-            }
-            else if (btnAddItem.Text == "Update")
-            {
-                //Make the text field hidden.
-                String ID = txtItemID.Text.ToString();
-                queryString = $"UPDATE [Item] SET [Name] = '{itemName}', [Description] = '{itemDescription}', [Price] = {itemPrice}, [Purchase] = '{itemPurchaseDate}', [Category] = {itemCatagory}, [Manufacture] = '{itemManufactureDate}', [Expiry] = '{itemExpiryDate}' WHERE Id = {itemID}";
-            }
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(queryString, con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
-            }
-            btnAddItem.Text = "Insert";
-
-            itemsGridView.EditIndex = -1;
-            this.load_data();
-        }
-
-
-        protected void btnClear_Click(object sender, EventArgs e)
-        {
-            itemsGridView.EditIndex = -1;
-            this.load_data();
-            btnAddItem.Text = "Insert";
-        }
-
         public void load_data()
         {
             try
@@ -83,6 +37,68 @@ namespace AppDev_GW
             {
                 Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
             }
+        }
+
+        protected void btnAddItem_Click(object sender, EventArgs e)
+        {
+            String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+
+            string itemID = txtItemID.Text.ToString() ?? "";
+            string itemName = txtItemName.Text.ToString() ?? "";
+            string itemDescription = txtItemDescription.Text.ToString() ?? "";
+            int itemPrice = txtItemPrice.Text.ToString().Length != 0 ? Int32.Parse(txtItemPrice.Text.ToString()) : 0;
+            string itemPurchaseDate = txtItemPurchaseDate.Text.ToString() ?? "";
+            string itemCatagory = ddlCatagory.Text.ToString() ?? "";
+            string itemManufactureDate = txtItemManufactureDate.Text.ToString() ?? "";
+            string itemExpiryDate = txtItemExpiryDate.Text.ToString() ?? "";
+            String queryString = "";
+
+            if (btnAddItem.Text == "Insert")
+            {
+                queryString = $"INSERT INTO [Item] ([Name], [Description], [Price], [Purchase], [Category], [Manufacture], [Expiry]) VALUES ('{itemName}', '{itemDescription}', {itemPrice}, '{itemPurchaseDate}', {itemCatagory}, '{itemManufactureDate}', '{itemExpiryDate}')";
+            }
+            else if (btnAddItem.Text == "Update")
+            {
+                queryString = $"UPDATE [Item] SET [Name] = '{itemName}', [Description] = '{itemDescription}', [Price] = {itemPrice}, [Purchase] = '{itemPurchaseDate}', [Category] = {itemCatagory}, [Manufacture] = '{itemManufactureDate}', [Expiry] = '{itemExpiryDate}' WHERE Id = {itemID}";
+            }
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(queryString, con);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
+            }
+            btnAddItem.Text = "Insert";
+            clear();
+
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+            clear();
+            btnAddItem.Text = "Insert";
+        }
+
+        protected void clear()
+        {
+            txtItemDescription.Text = txtItemExpiryDate.Text = txtItemID.Text = txtItemManufactureDate.Text = txtItemName.Text = txtItemPrice.Text = txtItemPurchaseDate.Text = "";
+        }
+
+        protected void populateFields(int rowIndex)
+        {
+            txtItemID.Text = this.itemsGridView.Rows[rowIndex].Cells[1].Text;
+            txtItemName.Text = this.itemsGridView.Rows[rowIndex].Cells[2].Text;
+            txtItemDescription.Text = this.itemsGridView.Rows[rowIndex].Cells[3].Text;
+            txtItemPurchaseDate.Text = this.itemsGridView.Rows[rowIndex].Cells[4].Text;
+            txtItemPrice.Text = this.itemsGridView.Rows[rowIndex].Cells[5].Text;
+            ddlCatagory.SelectedIndex = Convert.ToInt32(this.itemsGridView.Rows[rowIndex].Cells[6].Text);
+            txtItemManufactureDate.Text = this.itemsGridView.Rows[rowIndex].Cells[7].Text;
+            txtItemExpiryDate.Text = this.itemsGridView.Rows[rowIndex].Cells[8].Text;
         }
 
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -115,11 +131,9 @@ namespace AppDev_GW
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             itemsGridView.EditIndex = -1;
-            txtItemID.Text = this.itemsGridView.Rows[e.NewEditIndex].Cells[1].Text;
             btnAddItem.Text = "Update";
+            populateFields(e.NewEditIndex);
             this.load_data();
         }
-
-
     }
 }

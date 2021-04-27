@@ -60,6 +60,24 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.TextBox txtItemPurchaseDate;
 
         /// <summary>
+        /// btnPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnPurchase;
+
+        /// <summary>
+        /// calPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calPurchase;
+
+        /// <summary>
         /// txtItemManufactureDate control.
         /// </summary>
         /// <remarks>
@@ -76,15 +94,6 @@ namespace AppDev_GW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemExpiryDate;
-
-        /// <summary>
-        /// txtItemQuantity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
 
         /// <summary>
         /// ddlCatagory control.
