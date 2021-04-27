@@ -13,7 +13,13 @@ namespace AppDev_GW
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            load_data();
+            if (!this.IsPostBack)
+            {
+                calPurchase.Visible = false;
+                calManufacture.Visible = false;
+                calExpiry.Visible = false;
+                load_data();
+            }
         }
 
         public void load_data()
@@ -94,8 +100,8 @@ namespace AppDev_GW
             txtItemID.Text = this.itemsGridView.Rows[rowIndex].Cells[1].Text;
             txtItemName.Text = this.itemsGridView.Rows[rowIndex].Cells[2].Text;
             txtItemDescription.Text = this.itemsGridView.Rows[rowIndex].Cells[3].Text;
-            txtItemPurchaseDate.Text = this.itemsGridView.Rows[rowIndex].Cells[4].Text;
-            txtItemPrice.Text = this.itemsGridView.Rows[rowIndex].Cells[5].Text;
+            txtItemPrice.Text = this.itemsGridView.Rows[rowIndex].Cells[4].Text;
+            txtItemPurchaseDate.Text  = this.itemsGridView.Rows[rowIndex].Cells[5].Text;
             ddlCatagory.SelectedIndex = Convert.ToInt32(this.itemsGridView.Rows[rowIndex].Cells[6].Text);
             txtItemManufactureDate.Text = this.itemsGridView.Rows[rowIndex].Cells[7].Text;
             txtItemExpiryDate.Text = this.itemsGridView.Rows[rowIndex].Cells[8].Text;
@@ -134,6 +140,91 @@ namespace AppDev_GW
             btnAddItem.Text = "Update";
             populateFields(e.NewEditIndex);
             this.load_data();
+        }
+
+        protected void btnPurchase_Click(object sender, ImageClickEventArgs e)
+        {
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+            if (calPurchase.Visible)
+            {
+                calPurchase.Visible = false;
+            }
+            else
+            {
+                calPurchase.Visible = true;
+            }
+        }
+
+        protected void calPurchase_SelectionChanged(object sender, EventArgs e)
+        {
+            txtItemPurchaseDate.Text = calPurchase.SelectedDate.ToString("MM/dd/yyyy");
+            calPurchase.Visible = false;
+        }
+
+        protected void calPurchase_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.IsOtherMonth)
+            {
+                e.Day.IsSelectable = false;
+            }
+        }
+
+        protected void btnManufacture_Click(object sender, ImageClickEventArgs e)
+        {
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+            if (calManufacture.Visible)
+            {
+                calManufacture.Visible = false;
+            }
+            else
+            {
+                calManufacture.Visible = true;
+            }
+        }
+
+        protected void calManufacture_SelectionChanged(object sender, EventArgs e)
+        {
+            txtItemManufactureDate.Text = calManufacture.SelectedDate.ToString("MM/dd/yyyy");
+            calManufacture.Visible = false;
+        }
+
+        protected void calManufacture_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.IsOtherMonth)
+            {
+                e.Day.IsSelectable = false;
+            }
+        }
+
+
+        protected void btnExpiry_Click(object sender, ImageClickEventArgs e)
+        {
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+            if (calExpiry.Visible)
+            {
+                calExpiry.Visible = false;
+            }
+            else
+            {
+                calExpiry.Visible = true;
+            }
+        }
+
+        protected void calExpiry_SelectionChanged(object sender, EventArgs e)
+        {
+            txtItemExpiryDate.Text = calExpiry.SelectedDate.ToString("MM/dd/yyyy");
+            calExpiry.Visible = false;
+        }
+
+        protected void calExpiry_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.IsOtherMonth)
+            {
+                e.Day.IsSelectable = false;
+            }
         }
     }
 }
