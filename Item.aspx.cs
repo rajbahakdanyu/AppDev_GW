@@ -38,7 +38,7 @@ namespace AppDev_GW
             {
                 //Make the text field hidden.
                 String ID = txtItemID.Text.ToString();
-                queryString = $"UPDATE [Item] SET [Name] = '{itemName}', [Description] = '{itemDescription}', [Price] = {itemPrice}, [Purchase] = 'TO_DATE('{itemPurchaseDate}','dd/mm/yyyy')', [Category] = {itemCatagory}, [Manufacture] = 'TO_DATE('{itemManufactureDate}','dd/mm/yyyy')', [Expiry] = 'TO_DATE('{itemExpiryDate}','dd/mm/yyyy')' WHERE Id = {itemID}";
+                queryString = $"UPDATE [Item] SET [Name] = '{itemName}', [Description] = '{itemDescription}', [Price] = {itemPrice}, [Purchase] = '{itemPurchaseDate}', [Category] = {itemCatagory}, [Manufacture] = '{itemManufactureDate}', [Expiry] = '{itemExpiryDate}' WHERE Id = {itemID}";
             }
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -52,6 +52,14 @@ namespace AppDev_GW
 
             itemsGridView.EditIndex = -1;
             this.load_data();
+        }
+
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            itemsGridView.EditIndex = -1;
+            this.load_data();
+            btnAddItem.Text = "Insert";
         }
 
         public void load_data()
@@ -75,14 +83,6 @@ namespace AppDev_GW
             {
                 Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
             }
-        }
-
-        protected void OnRowCancelingEdit(object sender, EventArgs e)
-        {
-            itemsGridView.EditIndex = -1;
-            btnAddItem.Text = "Insert";
-            this.load_data();
-            btnCancleUpdate.Visible = true;
         }
 
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -110,13 +110,10 @@ namespace AppDev_GW
             {
                 (e.Row.Cells[0].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
             }
-            btnCancleUpdate.Visible = false;
         }
 
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
-            //itemsGridView.EditIndex = e.NewEditIndex;
-            btnCancleUpdate.Visible = true;
             itemsGridView.EditIndex = -1;
             txtItemID.Text = this.itemsGridView.Rows[e.NewEditIndex].Cells[1].Text;
             btnAddItem.Text = "Update";
