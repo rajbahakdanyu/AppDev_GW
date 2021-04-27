@@ -24,6 +24,15 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Label lbTitle;
 
         /// <summary>
+        /// txtId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtId;
+
+        /// <summary>
         /// lbName control.
         /// </summary>
         /// <remarks>
@@ -51,13 +60,13 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
         /// GridView1 control.
