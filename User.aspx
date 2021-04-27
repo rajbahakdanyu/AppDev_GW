@@ -15,6 +15,9 @@
                     </td>
                      <td>
                           <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                              <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtName"   
+                     ErrorMessage="Please enter username" ForeColor="Red"></asp:RequiredFieldValidator> 
+
                      </td>
                 </tr>
                  <tr>
@@ -23,6 +26,9 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword"   
+                     ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator> 
+
                      </td>
                 </tr>
                  <tr>

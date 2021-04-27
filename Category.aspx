@@ -7,6 +7,8 @@
          <asp:TextBox ID="txtId" runat="server" Visible="false"></asp:TextBox>
         <asp:Label ID="lbName" runat="server" Text="Category Name"></asp:Label>
         <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+        <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName"   
+        ErrorMessage="Please enter a category name" ForeColor="Red"></asp:RequiredFieldValidator>  
     </div>
 
     <div>

@@ -14,7 +14,9 @@
                         Customer Name :
                     </td>
                      <td>
-                          <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                          <asp:TextBox ID="txtName" runat="server"></asp:TextBox>    
+                         <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtName"   
+                            ErrorMessage="Please enter customer name" ForeColor="Red"></asp:RequiredFieldValidator>  
                      </td>
                 </tr>
                  <tr>
@@ -23,6 +25,8 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtNumber" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNumber"   
+                            ErrorMessage="Please enter customer phone number" ForeColor="Red"></asp:RequiredFieldValidator>  
                      </td>
                 </tr>
                  <tr>
@@ -31,6 +35,8 @@
                     </td>
                      <td>
                           <asp:TextBox ID="txtAddress" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtAddress"   
+                            ErrorMessage="Please enter customer address" ForeColor="Red"></asp:RequiredFieldValidator>  
                      </td>
                 </tr>
                  <tr>
@@ -39,6 +45,8 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtEmail"   
+                            ErrorMessage="Please enter customer email" ForeColor="Red"></asp:RequiredFieldValidator>  
                      </td>
                 </tr>
                  <tr>

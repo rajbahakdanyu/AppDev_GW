@@ -49,8 +49,6 @@ namespace AppDev_GW
             customer = Convert.ToInt32(ddlCustomer.SelectedValue);
             item = Convert.ToInt32(ddlItem.SelectedValue);
 
-            if (txtQuantity.Text != "")
-            {
                 try
                 {
                     quantity = Convert.ToInt32(txtQuantity.Text);
@@ -81,11 +79,7 @@ namespace AppDev_GW
                 {
                     Response.Write($"<script language=javascript>alert('Quantity must be a number')</script>");
                 }
-            }
-            else
-            {
-                Response.Write($"<script language=javascript>alert('Please Enter Quantity')</script>");
-            }
+            
         }
 
         protected int getQuantity(int Id)

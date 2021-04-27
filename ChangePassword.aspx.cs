@@ -21,8 +21,6 @@ namespace AppDev_GW
             string password = txtPassword.Text;
             string confirm = txtConfirm.Text;
 
-            if (confirm != "" && password != "")
-            {
                 if (confirm == password)
                 {
                     Change(confirm);
@@ -31,11 +29,7 @@ namespace AppDev_GW
                 {
                     Response.Write("<script language=javascript>alert('Both password do not match')</script>");
                 }
-            }
-            else
-            {
-                Response.Write("<script language=javascript>alert('Please password in both fields')</script>");
-            }
+            
         }
 
         protected void Change(string password)
