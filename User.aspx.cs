@@ -30,7 +30,7 @@ namespace AppDev_GW
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            String queryString = "SELECT * FROM [User]";
+            String queryString = "SELECT * FROM [User] EXCEPT SELECT * FROM [USER] WHERE [Type] = 'Admin'";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {

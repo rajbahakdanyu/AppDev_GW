@@ -18,6 +18,8 @@
             <tr>
                 <td><asp:Label ID="lbQuantity" runat="server" Text="Quantity"></asp:Label></td>
                 <td><asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox></td>
+                <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtQuantity"   
+                ErrorMessage="Please enter quantity" ForeColor="Red"></asp:RequiredFieldValidator>  
             </tr>
              <tr>
                 <td>&nbsp;</td>

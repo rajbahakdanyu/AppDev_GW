@@ -59,15 +59,16 @@ namespace AppDev_GW
                 queryString = $"UPDATE [Category] SET [Name] = '{name}' WHERE Id = {id}";
             }
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(queryString, con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
-            }
-            btnAdd.Text = "Insert";
-            clear();
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(queryString, con);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
+                }
+                btnAdd.Text = "Insert";
+                clear();
+           
 
             GridView1.EditIndex = -1;
             this.BindGrid();
