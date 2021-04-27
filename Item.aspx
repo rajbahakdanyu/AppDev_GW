@@ -1,18 +1,14 @@
 ﻿<%@ Page Title="Item" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Item.aspx.cs" Inherits="AppDev_GW.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-  <h3>Items page.</h3>
     <br />
     <div>
-        <div style="font-size:x-large" >Item info Manage Form</div>
+        <div style="font-size:x-large" >Items</div>
         <div>
             <table>
                 <tr>
                     <td>
-                        Item Id :
-                    </td>
-                    <td>
-                         <asp:TextBox ID="txtItemID" runat="server"></asp:TextBox>
+                         <asp:TextBox ID="txtItemID" runat="server" Visible="false"></asp:TextBox>
                     </td>
                 </tr>
                  <tr>
@@ -45,6 +41,17 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtItemPurchaseDate" runat="server"></asp:TextBox>
+                         <asp:ImageButton ID="btnPurchase" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnPurchase_Click"/>
+                        <asp:Calendar ID="calPurchase" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="calPurchase_SelectionChanged" OnDayRender="calPurchase_DayRender">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                      </td>
                 </tr>
                  <tr>
@@ -53,6 +60,17 @@
                     </td>
                      <td>
                            <asp:TextBox ID="txtItemManufactureDate" runat="server"></asp:TextBox>
+                            <asp:ImageButton ID="btnManufacture" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnManufacture_Click"/>
+                        <asp:Calendar ID="calManufacture" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="calManufacture_SelectionChanged" OnDayRender="calManufacture_DayRender">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                      </td>
                 </tr>
                  <tr>
@@ -61,14 +79,18 @@
                     </td>
                      <td>
                          <asp:TextBox ID="txtItemExpiryDate" runat="server"></asp:TextBox>
+                          <asp:ImageButton ID="btnExpiry" runat="server" ImageUrl="~/calendar.png" ImageAlign="AbsBottom" OnClick="btnExpiry_Click"/>
+                        <asp:Calendar ID="calExpiry" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="calExpiry_SelectionChanged" OnDayRender="calExpiry_DayRender">
+                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                            <NextPrevStyle VerticalAlign="Bottom" />
+                            <OtherMonthDayStyle ForeColor="#808080" />
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <SelectorStyle BackColor="#CCCCCC" />
+                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
+                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
+                            <WeekendDayStyle BackColor="#FFFFCC" />
+                        </asp:Calendar>
                      </td>
-                </tr>
-                 <tr>
-                    <td>
-                        Item Quantity : 
-                    </td>
-                     <td><asp:TextBox ID="txtItemQuantity" runat="server"></asp:TextBox>
-                        </td>
                 </tr>
                  <tr>
                     <td>
@@ -83,10 +105,8 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <asp:Button ID="btnAddItem" runat="server" Text="Insert" OnClick="btnAddItem_Click" />
-                        <asp:Button ID="btnDeleteItem" runat="server" Text="Delete" />
-                        <asp:Button ID="btnCancleUpdate" runat="server" Text="Cancle" Visible="false" />
-
+                        <asp:Button ID="btnAddItem" runat="server" Text="Insert" OnClick="btnAddItem_Click"/>
+                        <asp:Button ID="btnClear" runat="server" Text="Clear"  OnClick="btnClear_Click"/>
                     </td>
                     
                 </tr>
@@ -97,7 +117,7 @@
             <br />
            
             <asp:GridView ID="itemsGridView" runat="server" DataKeyNames="ID" OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" 
-                OnRowCancelingEdit="OnRowCancelingEdit" OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
+                OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
                 AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" CssClass="table table-striped">   
             </asp:GridView>
         </div>

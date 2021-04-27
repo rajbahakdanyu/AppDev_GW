@@ -60,6 +60,24 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.TextBox txtItemPurchaseDate;
 
         /// <summary>
+        /// btnPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnPurchase;
+
+        /// <summary>
+        /// calPurchase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calPurchase;
+
+        /// <summary>
         /// txtItemManufactureDate control.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,24 @@ namespace AppDev_GW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtItemManufactureDate;
+
+        /// <summary>
+        /// btnManufacture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnManufacture;
+
+        /// <summary>
+        /// calManufacture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calManufacture;
 
         /// <summary>
         /// txtItemExpiryDate control.
@@ -78,13 +114,22 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.TextBox txtItemExpiryDate;
 
         /// <summary>
-        /// txtItemQuantity control.
+        /// btnExpiry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemQuantity;
+        protected global::System.Web.UI.WebControls.ImageButton btnExpiry;
+
+        /// <summary>
+        /// calExpiry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calExpiry;
 
         /// <summary>
         /// ddlCatagory control.
@@ -114,22 +159,13 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Button btnAddItem;
 
         /// <summary>
-        /// btnDeleteItem control.
+        /// btnClear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteItem;
-
-        /// <summary>
-        /// btnCancleUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancleUpdate;
+        protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
         /// itemsGridView control.
