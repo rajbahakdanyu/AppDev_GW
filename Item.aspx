@@ -1,10 +1,9 @@
 ﻿<%@ Page Title="Item" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Item.aspx.cs" Inherits="AppDev_GW.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-  <h3>Items page.</h3>
     <br />
     <div>
-        <div style="font-size:x-large" >Item info Manage Form</div>
+        <div style="font-size:x-large" >Items</div>
         <div>
             <table>
                 <tr>
