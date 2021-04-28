@@ -7,15 +7,12 @@ using System.Web.UI.WebControls;
 
 namespace AppDev_GW
 {
-    public partial class SiteMaster : MasterPage
+    public partial class LogOut : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Check if user is logged in
-            if (Session["name"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            Session.Clear();
+            Response.Redirect("Login.aspx");
         }
     }
 }
