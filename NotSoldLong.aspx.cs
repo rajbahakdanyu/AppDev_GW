@@ -31,7 +31,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(Month, -3, sysdatetime())
+                                            WHERE [ItemId] = i.[Id]
+                                            AND [Date] >= Dateadd(Month, -3, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -63,7 +64,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(Month, -3, sysdatetime())
+                                            WHERE  [ItemId] = [Item].[Id]
+                                            AND [Date] >= Dateadd(Month, -3, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))

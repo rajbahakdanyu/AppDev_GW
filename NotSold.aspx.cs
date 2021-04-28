@@ -31,7 +31,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(DAY, -31, sysdatetime())
+                                            WHERE  [ItemId] = i.[Id]
+                                            AND [Date] >= Dateadd(DAY, -31, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))

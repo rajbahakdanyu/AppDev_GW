@@ -57,8 +57,8 @@
                         <li><a runat="server" href="~/NotSold">Not Sold Items</a></li>
                         <li><a runat="server" href="~/Inactive">Inactive Customers</a></li>
                         <li><a runat="server" href="~/NotSoldLong">Long Time Not Sold</a></li>
-                        <li><a class="dropdown-item" runat="server" onserverclick="Change">Change Password</a></li>   
-                        <li><a class="dropdown-item" runat="server" onserverclick="LogOut">Log Out</a></li>    
+                        <li><a class="dropdown-item" runat="server" href="~/ChangePassword">Change Password</a></li>   
+                        <li><a class="dropdown-item" runat="server" href="~/LogOut">Log Out</a></li>    
 	        </ul>
 
 	      </div>

@@ -108,7 +108,7 @@ namespace AppDev_GW
             txtItemDescription.Text = this.itemsGridView.Rows[rowIndex].Cells[3].Text;
             txtItemPrice.Text = this.itemsGridView.Rows[rowIndex].Cells[4].Text;
             txtItemPurchaseDate.Text  = this.itemsGridView.Rows[rowIndex].Cells[5].Text;
-            ddlCatagory.SelectedIndex = Convert.ToInt32(this.itemsGridView.Rows[rowIndex].Cells[6].Text);
+            ddlCatagory.SelectedIndex = Convert.ToInt32(this.itemsGridView.Rows[rowIndex].Cells[6].Text) - 1;
             txtItemManufactureDate.Text = this.itemsGridView.Rows[rowIndex].Cells[7].Text;
             txtItemExpiryDate.Text = this.itemsGridView.Rows[rowIndex].Cells[8].Text;
         }
