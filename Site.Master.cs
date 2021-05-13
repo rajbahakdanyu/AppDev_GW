@@ -17,12 +17,5 @@ namespace AppDev_GW
                 Response.Redirect("Login.aspx");
             }
         }
-
-        protected void Change(object sender, EventArgs e)
-        {
-            Response.Redirect("ChangePassword.aspx");
-        }
-
-       
     }
 }
