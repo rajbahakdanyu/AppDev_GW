@@ -12,6 +12,8 @@ namespace AppDev_GW
 {
     public partial class Stock : System.Web.UI.Page
     {
+
+        // Method to Load Stocks Page
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -20,6 +22,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Display Stock Details in Table From the Database
         protected void BindGrid()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -45,6 +49,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Add Stock of Items
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             int item = Convert.ToInt32(ddlItem.SelectedValue);
@@ -66,16 +72,20 @@ namespace AppDev_GW
                     {
                         Response.Write($"<script language=javascript>alert('Quantity must be more than 0')</script>");
                     }
-                } catch(FormatException ex)
+                }
+                catch (FormatException ex)
                 {
                     Response.Write($"<script language=javascript>alert('Quantity must be a number')</script>");
-                }  
-            } else
+                }
+            }
+            else
             {
                 Response.Write($"<script language=javascript>alert('Please Enter Quantity')</script>");
             }
         }
 
+
+        // Method to Get Quantity of Product Into the Table
         protected int getQuantity(int Id)
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -98,6 +108,7 @@ namespace AppDev_GW
             }
         }
 
+        // Method to Update Stock Details
         protected void restock(int Id, int quantity)
         {
             try
@@ -122,7 +133,8 @@ namespace AppDev_GW
                     }
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Response.Write($"<script language=javascript>alert('Error with Database')</script>");
             }

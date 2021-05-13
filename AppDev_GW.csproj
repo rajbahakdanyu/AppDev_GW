@@ -108,10 +108,24 @@
     <Content Include="calendar.png" />
     <Content Include="Category.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="css\bootstrap\mixins\_visibility.css" />
+    <Content Include="css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="css\bootstrap\_media.css" />
+    <Content Include="css\login-style.css" />
+    <Content Include="css\style.css" />
     <Content Include="Customer.aspx" />
     <Content Include="Detail.aspx" />
+    <Content Include="images\login-image.png" />
+    <Content Include="images\logo.png" />
     <Content Include="Inactive.aspx" />
     <Content Include="Item.aspx" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\popper.js" />
+    <Content Include="Logout.aspx" />
     <Content Include="NotSold.aspx" />
     <Content Include="NotSoldLong.aspx" />
     <Content Include="OutofStock.aspx" />
@@ -137,6 +151,11 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Login.aspx" />
     <Content Include="README.md" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap\.DS_Store" />
+    <Content Include="css\bootstrap\mixins\.DS_Store" />
+    <Content Include="js\.DS_Store" />
+    <Content Include="images\.DS_Store" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -220,6 +239,13 @@
       <DependentUpon>Item.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NotSold.aspx.cs">
       <DependentUpon>NotSold.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

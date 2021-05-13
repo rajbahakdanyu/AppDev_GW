@@ -23,10 +23,6 @@ namespace AppDev_GW
             Response.Redirect("ChangePassword.aspx");
         }
 
-        protected void LogOut(object sender, EventArgs e)
-        {
-            Session.Clear();
-            Response.Redirect("Login.aspx");
-        }
+       
     }
 }

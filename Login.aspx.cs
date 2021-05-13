@@ -11,14 +11,19 @@ namespace AppDev_GW
 {
     public partial class Login : System.Web.UI.Page
     {
+
+        // Method to Load Login Page of the Application
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session.Clear();
             if (Session["name"] != null)
             {
                 Response.Redirect("Default.aspx");
             }
         }
 
+
+        // Method to Validate Login Details of User
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string username = txtUsername.Text;
@@ -28,7 +33,8 @@ namespace AppDev_GW
             if (username == "" || password == "")
             {
                 Response.Write("<script language=javascript>alert('Please enter both username and password')</script>");
-            } else
+            }
+            else
             {
                 try
                 {
@@ -43,7 +49,7 @@ namespace AppDev_GW
                         con.Open();
 
                         // Executing query
-                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             // Check if output is empty
                             if (reader.HasRows)
@@ -62,12 +68,13 @@ namespace AppDev_GW
                             {
                                 Response.Write("<script language=javascript>alert('Invalid username or password')</script>");
                             }
-                        }                        
+                        }
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Response.Write("<script language=javascript>alert('Problem connecting to server')</script>");
-                } 
+                }
             }
 
         }

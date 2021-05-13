@@ -11,25 +11,29 @@ namespace AppDev_GW
 {
     public partial class ChangePassword : System.Web.UI.Page
     {
+
+        // Method to Load Change Password Page
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+
+        // Method to Update Password of User in the Database
         protected void btnChange_Click(object sender, EventArgs e)
         {
             string password = txtPassword.Text;
             string confirm = txtConfirm.Text;
 
-                if (confirm == password)
-                {
-                    Change(confirm);
-                }
-                else
-                {
-                    Response.Write("<script language=javascript>alert('Both password do not match')</script>");
-                }
-            
+            if (confirm == password)
+            {
+                Change(confirm);
+            }
+            else
+            {
+                Response.Write("<script language=javascript>alert('Both password do not match')</script>");
+            }
+
         }
 
         protected void Change(string password)
@@ -68,6 +72,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Clear Text Fields
         protected void btnClear_Click(object sender, EventArgs e)
         {
             txtConfirm.Text = "";

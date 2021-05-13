@@ -24,15 +24,6 @@ namespace AppDev_GW
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lbUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbUsername;
-
-        /// <summary>
         /// txtUsername control.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace AppDev_GW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
-
-        /// <summary>
-        /// lbPassword control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbPassword;
 
         /// <summary>
         /// txtPassword control.

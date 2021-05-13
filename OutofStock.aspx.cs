@@ -12,6 +12,8 @@ namespace AppDev_GW
 {
     public partial class OutofStock : System.Web.UI.Page
     {
+
+        // Method to Load Page
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -20,6 +22,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Display List of Items Which Are Currently Out of Stock
         private void BindGrid(string expression = "[Id]", string direction = "ASC")
         {
             int id = Convert.ToInt32(Session["id"].ToString());
@@ -44,6 +48,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Sort Items Of the Table
         protected void btnSort_Click(object sender, EventArgs e)
         {
             string expression = ddlSearch.SelectedItem.Value;

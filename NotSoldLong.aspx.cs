@@ -31,7 +31,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(Month, -3, sysdatetime())
+                                            WHERE [ItemId] = i.[Id]
+                                            AND [Date] >= Dateadd(Month, -3, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -49,10 +50,18 @@ namespace AppDev_GW
                 GridView1.DataBind();
             }
         }
-
+        //No button function
+        public void btnCancel_delete(object sender, EventArgs e)
+        {
+            popupMessage.Visible = false;
+            btnDelete.Visible = true;
+        }
+        //Yes I understand
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "Pop", "showModal();", true);
+            popupMessage.Visible = true;
+            btnDelete.Visible = false;
+          
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
@@ -63,7 +72,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(Month, -3, sysdatetime())
+                                            WHERE  [ItemId] = [Item].[Id]
+                                            AND [Date] >= Dateadd(Month, -3, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -76,6 +86,8 @@ namespace AppDev_GW
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Records Deleted Successfully')", true);
                 }
 
+                popupMessage.Visible = false;
+                btnDelete.Visible = true;
                 BindGrid();
             }
         }

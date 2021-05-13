@@ -15,15 +15,6 @@ namespace AppDev_GW
     {
 
         /// <summary>
-        /// lbTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbTitle;
-
-        /// <summary>
         /// lbName control.
         /// </summary>
         /// <remarks>
@@ -105,6 +96,15 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvQuantity;
 
         /// <summary>
+        /// dynamicButtons control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow dynamicButtons;
+
+        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -123,6 +123,15 @@ namespace AppDev_GW
         protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
+        /// sellGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sellGridView;
+
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace AppDev_GW
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+
+        /// <summary>
+        /// dialogSale control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl dialogSale;
 
         /// <summary>
         /// Label1 control.

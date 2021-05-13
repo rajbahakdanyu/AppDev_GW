@@ -1,62 +1,80 @@
 ﻿<%@ Page Title="User" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="AppDev_GW.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-            <div style="font-size:x-large">Users</div>
-        <div>
-            <table>
-                <tr>
-                    <td>
-                         <asp:TextBox ID="txtId" runat="server" Visible="false"></asp:TextBox>
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                        User Name :
-                    </td>
-                     <td>
-                          <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                                              <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtName"   
-                     ErrorMessage="Please enter username" ForeColor="Red"></asp:RequiredFieldValidator> 
-
-                     </td>
-                </tr>
-                 <tr>
-                    <td>
-                        User Password : 
-                    </td>
-                     <td>
-                         <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
-                                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword"   
-                     ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator> 
-
-                     </td>
-                </tr>
-                 <tr>
-                    <td>
-                        User Type :
-                    </td>
-                     <td>
-                         <asp:DropDownList ID="ddlType" runat="server">
-                             <asp:ListItem>Admin</asp:ListItem>
-                             <asp:ListItem>General</asp:ListItem>
-                         </asp:DropDownList>                        
+    <div class="col-md-8">
+        <div class="card">
+            <div style="font-size: x-large">Users</div>
+            <div>
+                <table>
+                    <tr>
+                        <td class="p-1">
+                            <asp:TextBox ID="txtId" runat="server" Visible="false"></asp:TextBox>
                         </td>
-                </tr>
-          
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAddItem_Click"/>
-                        <asp:Button ID="btnClear" runat="server" Text="Clear"  OnClick="btnClear_Click"/>
-                    </td>
-                    
-                </tr>
-            </table>
+                        <td class="p-1"></td>
+                        <td class="p-1"></td>
+                    </tr>
+                    <tr>
+                        <td class="p-1">
+                            <asp:Label ID="lbTitle" runat="server" Text="User Name :" Font-Size="Large"></asp:Label>
+                        </td>
+                        <td class="p-1">
+                            <asp:TextBox ID="txtName" runat="server"></asp:TextBox></td>
+                        <td class="p-1">
+
+                            <asp:RequiredFieldValidator ID="rfvQuantity" runat="server" ControlToValidate="txtName"
+                                ErrorMessage="Please enter username" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-1">
+                            <asp:Label ID="Label1" runat="server" Text="User Password :" Font-Size="Large"></asp:Label>
+                        </td>
+                        <td class="p-1">
+                            <div class="form-input">
+                                <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
+                       
+                            </div>    
+                        </td>
+                        <td class="p-1">
+
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPassword"
+                                ErrorMessage="Please enter password" ForeColor="Red"></asp:RequiredFieldValidator>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-1">
+                            <asp:Label ID="Label2" runat="server" Text="User Type :" Font-Size="Large"></asp:Label>
+                        </td>
+
+                        <td class="p-1">
+                            <asp:DropDownList ID="ddlType" runat="server">
+                                <asp:ListItem>Admin</asp:ListItem>
+                                <asp:ListItem>General</asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                        <td class="p-1"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-1">&nbsp;</td>
+                        <td class="p-1">
+                            <asp:Button ID="btnAdd" runat="server" Text="Insert" OnClick="btnAddItem_Click" CssClass="btn btn-info btn-lg" />
+                            <asp:Button ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CssClass="btn btn-danger btn-lg" />
+                        </td>
+                        <td class="p-1"></td>
+
+                    </tr>
+                </table>
+            </div>
+            <br />
+            <div class="card table table-hover table-responsive">
+                <asp:GridView ID="GridView1" orderStyle="None" GridLines="None" runat="server" DataKeyNames="ID" OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing"
+                    OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
+                    AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" CssClass="table table-striped">
+                </asp:GridView>
+            </div>
         </div>
-        <div>
-        <asp:GridView ID="GridView1" runat="server" DataKeyNames="ID" OnRowDataBound="OnRowDataBound" OnRowEditing="OnRowEditing" 
-        OnRowDeleting="OnRowDeleting" EmptyDataText="No records has been added."
-        AutoGenerateEditButton="True" AutoGenerateDeleteButton="True" CssClass="table table-striped">   
-        </asp:GridView>
     </div>
 </asp:Content>

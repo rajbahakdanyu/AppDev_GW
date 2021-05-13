@@ -12,14 +12,21 @@ namespace AppDev_GW
 {
     public partial class Customer : System.Web.UI.Page
     {
+
+        // Method to Load Customers Page
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 BindGrid();
+                ddlType.Items.Insert(0, new ListItem("Select customer type", ""));
+                ddlType.Items[0].Selected = true;
+                ddlType.Items[0].Attributes["disabled"] = "disabled";
             }
         }
 
+
+        // Method to Display Customer Details in Customers Table from Database
         protected void BindGrid()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -42,47 +49,52 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Add New Customer in the Application
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
-            try { 
-            String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
-
-            string id = txtId.Text.ToString() ?? "";
-            string name = txtName.Text.ToString() ?? "";
-            string number = txtNumber.Text.ToString() ?? "";
-            string address = txtAddress.Text.ToString() ?? "";
-            string email = txtEmail.Text.ToString() ?? "";
-            string type = ddlType.Text.ToString() ?? "";
-            String queryString = "";
-
-            if (btnAdd.Text == "Insert")
+            try
             {
-                queryString = $"INSERT INTO [Customer] ([Name], [Number], [Address], [Email], [Type]) VALUES ('{name}','{number}','{address}','{email}','{type}')";
-            }
-            else if (btnAdd.Text == "Update")
-            {
-                queryString = $"UPDATE [Customer] SET [Name] = '{name}', [Number] = '{number}', [Address] = '{address}', [Email] = '{email}', [Type] = '{type}' WHERE Id = {id}";
-            }
+                String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
 
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(queryString, con);
-                con.Open();
-                cmd.ExecuteNonQuery();
-                Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
+                string id = txtId.Text.ToString() ?? "";
+                string name = txtName.Text.ToString() ?? "";
+                string number = txtNumber.Text.ToString() ?? "";
+                string address = txtAddress.Text.ToString() ?? "";
+                string email = txtEmail.Text.ToString() ?? "";
+                string type = ddlType.Text.ToString() ?? "";
+                String queryString = "";
+
+                if (btnAdd.Text == "Insert")
+                {
+                    queryString = $"INSERT INTO [Customer] ([Name], [Number], [Address], [Email], [Type]) VALUES ('{name}','{number}','{address}','{email}','{type}')";
+                }
+                else if (btnAdd.Text == "Update")
+                {
+                    queryString = $"UPDATE [Customer] SET [Name] = '{name}', [Number] = '{number}', [Address] = '{address}', [Email] = '{email}', [Type] = '{type}' WHERE Id = {id}";
+                }
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(queryString, con);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    Response.Write($"<script language=javascript>alert('Performed operation successfully.')</script>");
+                }
+                btnAdd.Text = "Insert";
+                clear();
             }
-            btnAdd.Text = "Insert";
-            clear();
-        }
             catch (Exception ex)
             {
                 Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
             }
 
-    GridView1.EditIndex = -1;
+            GridView1.EditIndex = -1;
             this.BindGrid();
         }
 
+
+        // Method to Clear Text Fields
         protected void btnClear_Click(object sender, EventArgs e)
         {
             GridView1.EditIndex = -1;
@@ -94,8 +106,11 @@ namespace AppDev_GW
         protected void clear()
         {
             txtId.Text = txtName.Text = txtNumber.Text = txtAddress.Text = txtEmail.Text = "";
+            ddlType.SelectedIndex = 0;
         }
 
+
+        // Method to Populate Customer Details in Customer Table from Database
         protected void populateFields(int rowIndex)
         {
             txtId.Text = this.GridView1.Rows[rowIndex].Cells[1].Text;
@@ -106,6 +121,8 @@ namespace AppDev_GW
             ddlType.SelectedValue = this.GridView1.Rows[rowIndex].Cells[6].Text;
         }
 
+
+        // Method to Delete Selected Customer From Database
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string ID = GridView1.DataKeys[e.RowIndex].Values[0].ToString();
@@ -125,6 +142,8 @@ namespace AppDev_GW
             this.BindGrid();
         }
 
+
+        // Method to Confirm Deletion of Customer from the Application
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
@@ -133,6 +152,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Update Customer Details in the Application
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = -1;

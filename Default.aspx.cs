@@ -11,12 +11,16 @@ namespace AppDev_GW
 {
     public partial class _Default : Page
     {
+
+        // Method to Load Main Page of the Application
         protected void Page_Load(object sender, EventArgs e)
         {
             lessThanTen();
             noStock();
         }
 
+
+        // Method to Display List of Items Having Stock Less Than 10
         protected void lessThanTen()
         {
             try
@@ -54,6 +58,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Display List of Items Which Are Currently Out of Stock
         protected void noStock()
         {
             try

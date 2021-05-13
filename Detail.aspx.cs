@@ -12,11 +12,15 @@ namespace AppDev_GW
 {
     public partial class Detail : System.Web.UI.Page
     {
+
+        // Method to Load Purchase Details Page of Application
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
+
+        // Method to Search Purchase Detail of Customers in Application
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             string customer = ddlSearch.SelectedValue;
@@ -41,7 +45,8 @@ namespace AppDev_GW
                     GridView1.DataSource = dt;
                     GridView1.DataBind();
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Response.Write($"<script language=javascript>alert('Problem connecting to database')</script>");
             }

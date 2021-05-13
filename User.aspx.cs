@@ -12,6 +12,8 @@ namespace AppDev_GW
 {
     public partial class Contact : Page
     {
+
+        // Method to Display Users Page
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if user is admin
@@ -26,6 +28,7 @@ namespace AppDev_GW
         }
 
 
+        // Method to Display User Details in Table From the Database
         protected void BindGrid()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -49,6 +52,7 @@ namespace AppDev_GW
         }
 
 
+        // Method to Add New User in the Application
         protected void btnAddItem_Click(object sender, EventArgs e)
         {
             String connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -83,6 +87,7 @@ namespace AppDev_GW
         }
 
 
+        // Method to Clear Text Fields
         protected void btnClear_Click(object sender, EventArgs e)
         {
             GridView1.EditIndex = -1;
@@ -96,6 +101,8 @@ namespace AppDev_GW
             txtId.Text = txtName.Text = txtPassword.Text = "";
         }
 
+
+        // Method to Populate USer Details in the Users Table
         protected void populateFields(int rowIndex)
         {
             txtId.Text = this.GridView1.Rows[rowIndex].Cells[1].Text;
@@ -105,6 +112,7 @@ namespace AppDev_GW
         }
 
 
+        // Method to Delete User From the Database
         protected void OnRowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string ID = GridView1.DataKeys[e.RowIndex].Values[0].ToString();
@@ -124,6 +132,8 @@ namespace AppDev_GW
             this.BindGrid();
         }
 
+
+        // Method to Confirm Deletion of User from the Application
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
@@ -132,6 +142,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Update User Details in the Database
         protected void OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             GridView1.EditIndex = -1;

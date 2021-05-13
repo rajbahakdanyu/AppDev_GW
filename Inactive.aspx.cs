@@ -12,6 +12,8 @@ namespace AppDev_GW
 {
     public partial class Inactive : System.Web.UI.Page
     {
+
+        // Method to Load Page Inactive Customer Details Page
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -20,6 +22,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Display List of Inactive Customers In the Table From Database
         private void BindGrid()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;

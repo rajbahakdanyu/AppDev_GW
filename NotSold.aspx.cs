@@ -10,8 +10,11 @@ using System.Web.UI.WebControls;
 
 namespace AppDev_GW
 {
+
     public partial class NotSold : System.Web.UI.Page
     {
+
+        // Method to Load Page 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -20,6 +23,8 @@ namespace AppDev_GW
             }
         }
 
+
+        // Method to Display List of Item in Table Which Are Not Sold 
         private void BindGrid()
         {
             string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -31,7 +36,8 @@ namespace AppDev_GW
                                     WHERE NOT EXISTS ( 
                                             SELECT *
                                             FROM [Order]
-                                            WHERE [Date] >= Dateadd(DAY, -31, sysdatetime())
+                                            WHERE  [ItemId] = i.[Id]
+                                            AND [Date] >= Dateadd(DAY, -31, sysdatetime())
                                     )";
 
             using (SqlConnection con = new SqlConnection(connectionString))

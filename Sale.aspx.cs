@@ -49,37 +49,42 @@ namespace AppDev_GW
             customer = Convert.ToInt32(ddlCustomer.SelectedValue);
             item = Convert.ToInt32(ddlItem.SelectedValue);
 
-                try
+            try
+            {
+                quantity = Convert.ToInt32(txtQuantity.Text);
+
+                if (quantity > 0)
                 {
-                    quantity = Convert.ToInt32(txtQuantity.Text);
+                    int remaining = getQuantity(item);
 
-                    if (quantity > 0)
+                    if (remaining == 0)
                     {
-                        int remaining = getQuantity(item);
-
-                        if (remaining == 0)
-                        {
-                            Response.Write($"<script language=javascript>alert('Sorry the product is out of stock')</script>");
-                        } else if (quantity > remaining)
-                        {
-                            Response.Write($"<script language=javascript>alert('Requested amount is greater than stock')</script>");
-                        } else
-                        {
-                            total = getPrice(item) * quantity;
-
-                            display();
-                        }
+                        Response.Write($"<script language=javascript>alert('Sorry the product is out of stock')</script>");
+                    }
+                    else if (quantity > remaining)
+                    {
+                        Response.Write($"<script language=javascript>alert('Requested amount is greater than stock')</script>");
                     }
                     else
                     {
-                        Response.Write($"<script language=javascript>alert('Quantity must be more than 0')</script>");
+                        total = getPrice(item) * quantity;
+
+                        display();
+                        dialogSale.Visible = true;
+                        dynamicButtons.Visible = false;
+                        sellGridView.Visible = false;
                     }
                 }
-                catch (FormatException ex)
+                else
                 {
-                    Response.Write($"<script language=javascript>alert('Quantity must be a number')</script>");
+                    Response.Write($"<script language=javascript>alert('Quantity must be more than 0')</script>");
                 }
-            
+            }
+            catch (FormatException ex)
+            {
+                Response.Write($"<script language=javascript>alert('Quantity must be a number')</script>");
+            }
+
         }
 
         protected int getQuantity(int Id)
@@ -135,13 +140,21 @@ namespace AppDev_GW
             ClientScript.RegisterStartupScript(this.GetType(), "Pop", "showModal();", true);
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            dialogSale.Visible = false;
+            sellGridView.Visible = true;
+            dynamicButtons.Visible = true;
+        }
+
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 var current = DateTime.Today;
                 customer = Convert.ToInt32(ddlCustomer.SelectedValue);
-                item = Convert.ToInt32(ddlItem.SelectedValue); 
-                quantity = Convert.ToInt32(txtQuantity.Text); 
+                item = Convert.ToInt32(ddlItem.SelectedValue);
+                quantity = Convert.ToInt32(txtQuantity.Text);
                 total = getPrice(item) * quantity;
 
                 string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
@@ -159,14 +172,17 @@ namespace AppDev_GW
                     txtQuantity.Text = "";
                     BindGrid();
                     updateStock(item, quantity);
+                    sellGridView.Visible = true;
+                    dialogSale.Visible = false;
+                    dynamicButtons.Visible = true;
                 }
-        }
+            }
             catch (Exception ex)
             {
                 Response.Write($"<script language=javascript>alert('Problem connecting to database: {ex.Message}')</script>");
             }
 
-}
+        }
 
         protected void updateStock(int Id, int quantity)
         {
